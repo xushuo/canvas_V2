@@ -1,0 +1,58 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<canvas id="canvas" style="border: 1px solid black"></canvas>
+
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+
+    canvas.width = 1200;
+    canvas.height = 600;
+
+    if (context) {
+       // context.lineCap = "butt(default)/round/square";//线条两端的样式
+       // context.lineJoin="miter(default)/bevel/bound";//线条相交时样式，拐角。
+       // context.miterLimit=10;//当使用miter时，内外角长度。超过即显示为bevel
+
+
+
+
+        drawStar(context,100,200,200,200,20);
+
+    }
+    function drawStar(context,r,R,x,y,rot) {
+        context.beginPath();
+        for(var i=0; i<5; i++){
+            context.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
+                -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
+            context.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
+                -Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+        }
+        context.closePath();
+        context.fillStyle="#fb3";
+        context.strokeStyle="#fd5";
+        context.lineWidth=3;
+        context.lineJoin="round";
+        context.stroke();
+    }
+
+
+</script>
+
+</body>
+</html>
