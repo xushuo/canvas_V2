@@ -66,18 +66,32 @@
 //            context.fillRect(0,0,800,500)
 //        }
 
-        //曲线绘制
-        context.arc();//圆
-        //圆弧  控制点 结束点
-        context.arcTo(x1, y1, x2, y2, radius);
+//        //曲线绘制
+//        context.arc();//圆
+//        //圆弧  控制点 结束点
+//        context.arcTo(x1, y1, x2, y2, radius);
+//
+//        //贝塞尔曲线 控制点 结束点
+//        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/quadratic-curve.html
+//        context.quadraticCurveTo(x1, y1, x2, y2);
+//
+//        //贝塞尔三次曲线 控制点 控制点 结束点
+//        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html
+//        context.bezierCurveTo(x1,y1,x2,y2,x3,y3);
 
-        //贝塞尔曲线 控制点 结束点
-        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/quadratic-curve.html
-        context.quadraticCurveTo(x1, y1, x2, y2);
+        context.textAlign="left";//水平对齐
+        context.textBaseline="bottom";//垂直方向对齐
 
-        //贝塞尔三次曲线 控制点 控制点 结束点
-        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html
-        context.bezierCurveTo(x1,y1,x2,y2,x3,y3);
+        context.font="bold 40px 楷体";
+        var leg = context.measureText("这是测试宽度的O(∩_∩)O哈哈~").width;
+        context.fillText("这是测试canvas文字效果"+leg+"px",300,100);
+        context.strokeText("这是测试canvas文字效果",300,200);
+
+        //第四个参数，绘制文字最长宽度
+        context.fillText("这是测试canvas文字效果",300,300,200);
+        context.strokeText("这是测试canvas文字效果",300,400,200);
+
+
 
 //        context.beginPath();
 //        var st = context.createLinearGradient(0,0,0,canvas.height);
