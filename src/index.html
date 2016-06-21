@@ -66,14 +66,18 @@
 //            context.fillRect(0,0,800,500)
 //        }
 
-          //曲线绘制
-          context.arc();//圆
-          //圆弧  控制点 结束点
-          context.arcTo(x1,y1,x2,y2,radius);
+        //曲线绘制
+        context.arc();//圆
+        //圆弧  控制点 结束点
+        context.arcTo(x1, y1, x2, y2, radius);
 
-          //贝塞尔曲线 控制点 结束点
-          context.quadraticCurveTo(x1,y1,x2,y2);
+        //贝塞尔曲线 控制点 结束点
+        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/quadratic-curve.html
+        context.quadraticCurveTo(x1, y1, x2, y2);
 
+        //贝塞尔三次曲线 控制点 控制点 结束点
+        //http://blogs.sitepointstatic.com/examples/tech/canvas-curves/bezier-curve.html
+        context.bezierCurveTo(x1,y1,x2,y2,x3,y3);
 
 //        context.beginPath();
 //        var st = context.createLinearGradient(0,0,0,canvas.height);
