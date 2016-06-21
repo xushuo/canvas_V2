@@ -22,47 +22,81 @@
     var context = canvas.getContext('2d');
 
     canvas.width = 1200;
-    canvas.height = 600;
+    canvas.height = 800;
 
 
     if (context) {
-       // context.lineCap = "butt(default)/round/square";//线条两端的样式
-       // context.lineJoin="miter(default)/bevel/bound";//线条相交时样式，拐角。
-       // context.miterLimit=10;//当使用miter时，内外角长度。超过即显示为bevel
-       // context.save();保存canvas绘图状态
-       // context.restore();还原canvas绘图状态； 两个同时出现。
-       // context.scale(sx,sy);缩放包含context所有状态。
-       // context.translate(x,y);
-       // context.rotate(deg);
+//        context.lineCap = "butt(default)/round/square";//线条两端的样式
+//        context.lineJoin="miter(default)/bevel/bound";//线条相交时样式，拐角。
+//        context.miterLimit=10;//当使用miter时，内外角长度。超过即显示为bevel
+
+//        context.save();保存canvas绘图状态
+//        context.restore();还原canvas绘图状态； 两个同时出现。
+
+//        context.scale(sx,sy);缩放包含context所有状态。
+//        context.translate(x,y);
+//        context.rotate(deg);
+
+//        线性渐变线  起始坐标
+//        context.beginPath();
+//        var linearGrad = context.createLinearGradient(0, 0, 200, 200);
+//        linearGrad.addColorStop(0.0, "red");
+//        linearGrad.addColorStop(1.0, "yellow");
+//        context.fillStyle = linearGrad;
+//        context.fillRect(0, 0, 800, 500);
+//        context.closePath();
+
+//        径向渐变线  起始坐标和半径
+//        context.beginPath();
+//        var radialGrad = context.createRadialGradient(273, 273, 220, 400, 400, 400);
+//        radialGrad.addColorStop(0.0, "green");
+//        radialGrad.addColorStop(0.5, "yellow");
+//        radialGrad.addColorStop(1.0, "black");
+//        context.fillStyle = radialGrad;
+//        context.fillRect(0, 0, 800, 800);
+//        context.closePath();
+
+//        //可添加图片，canvas，video。
+//        var img = new Image();
+//        img.src="apple-touch-icon.png";
+//        img.onload=function (){
+//            //no-repeat  repeat repeat-y repeat-x
+//            var pattern = context.createPattern(img,"no-repeat");
+//            context.fillStyle = pattern;
+//            context.fillRect(0,0,800,500)
+//        }
 
 
-
-        context.fillStyle="black";
-        context.fillRect(0,0,canvas.width,canvas.height);
-
-        for(var i=0,len=200; i<len; i++){
-            var r = Math.random()*10+10;
-            var x = Math.random()*canvas.width;
-            var y = Math.random()*canvas.height;
-            var a = Math.random()*360;
-            drawStar(context,r/2.0,r,x,y,a);
-        }
-
+//        context.beginPath();
+//        var st = context.createLinearGradient(0,0,0,canvas.height);
+//        st.addColorStop(0.0,"black");
+//        st.addColorStop(1.0,"#035");
+//        context.fillStyle = st;
+//        context.fillRect(0, 0, canvas.width, canvas.height);
+//
+//        for (var i = 0, len = 200; i < len; i++) {
+//            var r = Math.random() * 5 + 5;
+//            var x = Math.random() * canvas.width;
+//            var y = Math.random() * canvas.height * 0.5;
+//            var a = Math.random() * 360;
+//            drawStar(context, r / 2.0, r, x, y, a);
+//        }
+//        context.closePath();
 
     }
-    function drawStar(context,r,R,x,y,rot) {
+    function drawStar(context, r, R, x, y, rot) {
         context.beginPath();
-        for(var i=0; i<5; i++){
-            context.lineTo(Math.cos((18+i*72-rot)/180*Math.PI)*R+x,
-                -Math.sin((18+i*72-rot)/180*Math.PI)*R+y);
-            context.lineTo(Math.cos((54+i*72-rot)/180*Math.PI)*r+x,
-                -Math.sin((54+i*72-rot)/180*Math.PI)*r+y);
+        for (var i = 0; i < 5; i++) {
+            context.lineTo(Math.cos((18 + i * 72 - rot) / 180 * Math.PI) * R + x,
+                -Math.sin((18 + i * 72 - rot) / 180 * Math.PI) * R + y);
+            context.lineTo(Math.cos((54 + i * 72 - rot) / 180 * Math.PI) * r + x,
+                -Math.sin((54 + i * 72 - rot) / 180 * Math.PI) * r + y);
         }
         context.closePath();
-        context.fillStyle="#fb3";
-        context.strokeStyle="#fd5";
-        context.lineWidth=3;
-        context.lineJoin="round";
+        context.fillStyle = "#fb3";
+        context.strokeStyle = "#fd5";
+        context.lineWidth = 3;
+        context.lineJoin = "round";
 
         context.fill();
         context.stroke();
