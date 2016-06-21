@@ -68,8 +68,12 @@
 
           //曲线绘制
           context.arc();//圆
-          //圆弧 起点 切点 结束点 控制点
+          //圆弧  控制点 结束点
           context.arcTo(x1,y1,x2,y2,radius);
+
+          //贝塞尔曲线 控制点 结束点
+          context.quadraticCurveTo(x1,y1,x2,y2);
+
 
 //        context.beginPath();
 //        var st = context.createLinearGradient(0,0,0,canvas.height);
